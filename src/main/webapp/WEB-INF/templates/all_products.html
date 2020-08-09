@@ -27,11 +27,29 @@
         <tr th:each="b : ${frontProducts}">
             <td th:text="${b.id}"></td>
             <td th:text="${b.name}"></td>
-            <td th:text="${'C: ' + b.price}"></td>
+            <td th:text="${b.price}"></td>
             <td><a class="btn btn-danger" th:href="@{'/products/remove/' + ${b.id}}">Удалить</a></td>
         </tr>
         </tbody>
     </table>
+
+
+    <br>
+    <br>
+    <div class="container">
+        <h4>Добавить продукт:</h4>
+        <form th:action="@{'/products/add'}" method="post">
+            <div class="form-group">
+                <label>Название</label>
+                <input type="text" class="form-control form-control-sm" name="name">
+            </div>
+            <div class="form-group">
+                <label>Цена</label>
+                <input type="number" class="form-control form-control-sm" name="price">
+            </div>
+            <button type="submit" class="btn btn-primary">Сохранить</button>
+        </form>
+    </div>
 <!--    <span th:text="'Количество коробок: ' + ${frontBoxes.size()}"/>-->
 <!--    <form th:action="@{'/boxes/add'}" method="post">-->
 <!--        &lt;!&ndash; GET http://localhost:8189/app/boxes/add?id=10&color=red&size=20 &ndash;&gt;-->
